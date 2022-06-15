@@ -21,7 +21,24 @@ namespace Adesso.Demo.Tests
             User user = new User
             {
                 Name = "test",
-                Id = 123
+                Id = 123,
+                Address = new Address { 
+                    City = "Test Istanbul",
+                    Geo = new Geo { },
+                    Street = "test Street",
+                    Suite = "Test Suite",
+                    Zipcode = "34"
+                },
+                Company = new Company { 
+                    Bs = "",
+                    CatchPhrase = "",
+                    Name = "Adesso"
+                },
+                Email = "test@adesso.com",
+                Phone = "216",
+                Website = "www",
+                Username = "testUsername",
+                
             };
             User invalid = new User
             {
@@ -51,7 +68,7 @@ namespace Adesso.Demo.Tests
             _mockClient.Setup(x => x.GetUsers()).Returns(users);
         }
         [Fact]
-        public void GetUserByUsernameShouldReturnTest() {
+        public void GetUserByUsernameShouldReturnNameAsTest() {
             #region Arrange
             var expected = "test";
             var username = "test";
